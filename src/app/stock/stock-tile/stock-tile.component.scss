@@ -1,0 +1,39 @@
+.stock-panel {
+  border-radius: 20px;
+  border: 2px solid;
+  padding: 2rem;
+  margin: 1rem;
+  width: 450px;
+  position: relative;
+
+  &-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  &-remove {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  &-body {
+    display: flex;
+    justify-content: space-between;
+
+    td {
+      padding-right: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    &-arrow {
+      font-size: 50px;
+    }
+  }
+
+  &-footer {
+    margin-top: 2rem;
+    text-align: center;
+  }
+}

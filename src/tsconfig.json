@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "experimentalDecorators": true,
+    "compilerOptions": {
+      "target": "es6"
+    }
+  }
+}

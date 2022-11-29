@@ -1,0 +1,47 @@
+<div class="stock-panel">
+  <div class="stock-panel-title">
+    {{ quoteSymbol.symbol.description | uppercase }} ({{
+      quoteSymbol.symbol.symbol | uppercase
+    }})
+  </div>
+  <button
+    [id]="'remove' + quoteSymbol.symbol.symbol.toUpperCase()"
+    class="stock-panel-remove"
+    (click)="onRemoveClick(quoteSymbol.symbol.symbol)"
+  >
+    x
+  </button>
+  <div class="stock-panel-body">
+    <table>
+      <tr>
+        <td>
+          <b>Change today :</b><br />{{
+            quoteSymbol.quote.dp! | percentIncreaseOrDecrease
+          }}
+        </td>
+        <td>
+          <b>Opening price :</b><br />{{ quoteSymbol.quote.o | currency }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <b>Current price :</b><br />{{ quoteSymbol.quote.c | currency }}
+        </td>
+        <td><b>High price :</b><br />{{ quoteSymbol.quote.h | currency }}</td>
+      </tr>
+    </table>
+
+    <div class="stock-panel-body-arrow">
+      <app-arrow [value]="quoteSymbol.quote.dp!"></app-arrow>
+    </div>
+  </div>
+
+  <div class="stock-panel-footer">
+    <button
+      [id]="'sentiment' + quoteSymbol.symbol.symbol.toUpperCase()"
+      [routerLink]="['/sentiment', quoteSymbol.symbol.symbol]"
+    >
+      Go to social sentiment details >
+    </button>
+  </div>
+</div>

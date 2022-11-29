@@ -1,0 +1,11 @@
+<div class="sentiment-month-panel">
+  <div class="sentiment-month-description">
+    <b>{{ monthName | uppercase }}</b
+    ><br />
+    Change : {{ sentiment.change | positiveOrNegative }}<br />
+    MSPR : {{ sentiment.mspr }}
+  </div>
+  <div class="sentiment-month-panel-arrow">
+    <app-arrow [value]="sentiment.change"></app-arrow>
+  </div>
+</div>

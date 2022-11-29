@@ -1,0 +1,22 @@
+.sentiment-panel {
+  border-radius: 20px;
+  border: 2px solid;
+  padding: 2rem;
+  margin: 1rem;
+
+  &-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  &-months {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &-footer {
+    margin-top: 1rem;
+  }
+}

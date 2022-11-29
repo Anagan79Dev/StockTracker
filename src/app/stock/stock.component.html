@@ -1,0 +1,34 @@
+<div class="stock-form">
+  <h1>STOCK TRACKER</h1>
+  <p>Enter the symbol of a stock track (i.e. APPL, TSLA, GOOGL)</p>
+
+  <form [formGroup]="stockFormGroup" (ngSubmit)="onSubmit()" novalidate>
+    <input
+      type="text"
+      id="stockInput"
+      name="stockInput"
+      formControlName="stockName"
+      (keyup)="
+        stockFormGroup.controls.stockName.setValue(
+          stockFormGroup.controls.stockName.value!.toUpperCase()
+        )
+      "
+    />
+
+    <button
+      type="submit"
+      id="trackBtn"
+      [disabled]="!stockFormGroup.valid || isLoading"
+    >
+      {{ !isLoading ? "Track Stock" : "Loading..." }}
+    </button>
+  </form>
+</div>
+
+<div class="stocks">
+  <app-stock-tile
+    [quoteSymbol]="quoteSymbol"
+    (removeSymbol)="onRemoveSymbol($event)"
+    *ngFor="let quoteSymbol of quotesSymbols"
+  ></app-stock-tile>
+</div>
