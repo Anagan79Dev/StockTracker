@@ -15,7 +15,7 @@ export class GetSentimentsBySymbolAndPeriodResolver
   public resolve(route: ActivatedRouteSnapshot): Observable<SentimentDto[]> {
     const now = new Date();
     const past = new Date();
-    past.setMonth(now.getMonth() - 3);
+    past.setMonth(now.getMonth() - 2);
 
     return this.sentimentApiService.getBySymbolAndPeriod(
       route.params['symbol'].toUpperCase(),
