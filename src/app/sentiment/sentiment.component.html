@@ -4,13 +4,16 @@
       {{ symbol.description | uppercase }} ({{ symbol.symbol | uppercase }})
     </div>
 
-    <div class="sentiment-panel-months">
-      <app-sentiment-month
-        [sentiment]="sentiment"
-        *ngFor="let sentiment of sentiments"
-      ></app-sentiment-month>
-    </div>
+    <ng-container *ngIf="sentiments && sentiments.length; else notFound">
+      <div class="sentiment-panel-months">
+        <app-sentiment-month
+          [sentiment]="sentiment"
+          *ngFor="let sentiment of sentiments"
+        ></app-sentiment-month>
+      </div>
+    </ng-container>
   </ng-container>
+
   <ng-template #notFound> No data found </ng-template>
 
   <div class="sentiment-panel-footer">
